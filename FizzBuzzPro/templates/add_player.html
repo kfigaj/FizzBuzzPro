@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Add a new player!</h2>
+    <form method="POST" action="{{ url_for('add_player') }}">
+        <label>
+            <span>Player:</span>
+            <input type='text' name='player_name' />
+        </label><br>
+        <label>
+            <span>Skill:</span>
+            <input type="radio" name="skill" value="1" checked='checked'> 1<br>
+            <input type="radio" name="skill" value="2" > 2<br>
+            <input type="radio" name="skill" value="3"> 3<br>
+            <input type="radio" name="skill" value="4"> 4<br>
+        </label>
+        <input type='submit' value='Add' />
+    </form>
+{% endblock %}

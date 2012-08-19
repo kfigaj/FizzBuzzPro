@@ -1,0 +1,74 @@
+# MacOs garbage
+*.DS_Store
+*.AppleDouble
+
+# Python garbage
+*.pyc
+*.pyo
+
+# Vim-style backups
+*~
+
+# Merge garbage
+*.orig
+*.BACKUP.*
+*.REMOTE.*
+*.LOCAL.*
+*.BASE.*
+
+# Windows garbage
+*.db
+
+# VIM 
+*.swp
+
+# Eclipse garbage
+.pydevproject
+.project
+.settings
+
+# Devel stuff
+smartlead.log
+smartlead_dev.db
+localsettings.py
+devsettings.py
+settings/local
+secret.key
+
+# Generated media
+static/compressed
+protected
+*.orig
+static/generic*
+static/upload
+static/tests
+*.jpg*.jpg
+docs/_build
+
+#Other temp stuff
+temp
+pip-log.txt
+build
+unittests.xml
+coverage.xml
+bin/*.jar
+TEST-*.xml
+*-coverage.dat
+.coverage
+celerybeat-schedule
+
+# Fake mails from mailsink
+*.eml
+_outgoing_mail
+
+venv
+.gitignore
+
+activate
+activate_new
+
+# Less symlink
+static/js/less-1.2.2.js
+
+#Local config
+discourse_evs.yaml

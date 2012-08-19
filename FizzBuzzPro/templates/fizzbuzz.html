@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Players</h2>
+    {% if error %}
+    <h3>{{ error }}</h3>
+    {% endif %}
+    {% if players %}
+    <form method="post">
+        <table>
+            {% for player in players %}
+            <tr>
+                <td>
+                    <input type="checkbox" name="player_id" value="{{player.id}}" checked="checked">
+                </td>
+                <td>
+                    <span>{{ player.player_name }} - skill {{ player.skill }}</span>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type='submit' value="Play">
+    </form>
+    {% else %}
+    <span>No players to display.</span>
+    {% endif %}
+    <a href="{{ url_for('add_player') }}">Add a new player</a>
+    
+    {% if leader_board %}
+        <h2>Leader board</h2>
+        {% for player in leader_board %}
+           <span>{{ loop.index }}. {{ player.player_name }} ({{ player.number_games_won }} 
+               {% if player.number_games_won == 1 %}
+                    Win
+               {% else %}
+                    Wins
+               {% endif %}
+               )
+           </span>
+           <br>
+        {% endfor %}
+    {% endif %}
+    
+    {% if recent_games %}
+        <h2>Recent games</h2>
+        <table>
+        <tr>
+            <th>Date</th>
+            <th>Rounds</th>
+            <th>Winner</th>
+        </tr>
+        {% for game in recent_games %}
+            <tr>
+                <td>{{ game.end_date.strftime('%B %d, %Y %I:%M %p') }}</td>
+                <td>{{ game.number_of_rounds }}</td>
+                <td>{{ game.winner.player_name }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

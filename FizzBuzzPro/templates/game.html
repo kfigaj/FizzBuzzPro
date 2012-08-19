@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Fizz buzz game!</h2>
+    
+    {% for round in result.rounds %}
+    <h3>Round {{ round.round_number }}</h3>
+        {% for move in round.moves %}
+            <span>{{ move.player_name }}: {{ move.answer }}</span>
+            {% if not move.is_correct %}
+            <span>Looses - out of game!</span>
+            {% endif %}
+            <br>
+        {% endfor %}
+    {% endfor %}
+    <br>
+    
+    {% if result.winner %}
+    <h2>Winner: {{ result.winner.player_name }}</h2>
+    {% else %}
+    <h2>No winner</h2>
+    {% endif %}
+    
+    <a href="{{ url_for('main') }}">Go back to main page</a>
+{% endblock %}
